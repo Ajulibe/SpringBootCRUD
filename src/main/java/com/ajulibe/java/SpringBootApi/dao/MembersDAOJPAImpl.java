@@ -2,11 +2,14 @@ package com.ajulibe.java.SpringBootApi.dao;
 
 import com.ajulibe.java.SpringBootApi.entity.Members;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
+@Repository
 public class MembersDAOJPAImpl implements MembersDAO {
 
     // define field for entitymanager
@@ -21,6 +24,7 @@ public class MembersDAOJPAImpl implements MembersDAO {
 
 
     @Override
+    @Transactional
     public List<Members> findAll() {
         // create a query
         Query theQuery =
@@ -34,6 +38,7 @@ public class MembersDAOJPAImpl implements MembersDAO {
     }
 
     @Override
+    @Transactional
     public Members findById(int theId) {
         // get employee
         Members theMember =
@@ -44,6 +49,7 @@ public class MembersDAOJPAImpl implements MembersDAO {
     }
 
     @Override
+    @Transactional
     public void save(Members theMember) {
 
         // save or update the employee
@@ -54,6 +60,7 @@ public class MembersDAOJPAImpl implements MembersDAO {
     }
 
     @Override
+    @Transactional
     public void deleteById(int theId) {
         // delete object with primary key
         Query theQuery = entityManager.createQuery(

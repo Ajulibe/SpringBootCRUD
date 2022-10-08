@@ -1,6 +1,8 @@
 package com.ajulibe.java.SpringBootApi.entity;
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,30 +12,37 @@ public class Members {
     // define fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "memid")
     private int memid;
 
-    @Column(name = "sur_name")
+    @NotNull
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "first_name")
+    @NotNull
+    @Column(name = "firstname")
     private String firstname;
 
 
+    @NotNull
     @Column(name = "address")
     private String address;
 
-    @Column(name = "zip_code")
+    @NotNull
+    @Column(name = "zipcode")
     private int zipcode;
 
+    @NotNull
     @Column(name = "telephone")
     private String telephone;
 
-    @Column(name = "join_date")
+    @NotNull
+    @Column(name = "joindate")
     private Date joindate;
 
+    @NotNull
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "recommendedby", referencedColumnName = "id")
+    @JoinColumn(name = "recommendedby", referencedColumnName = "memid")
     private Members recommendedby;
 
     public Members() {
@@ -59,6 +68,7 @@ public class Members {
     public void setMemid(int memid) {
         this.memid = memid;
     }
+
 
     public String getSurname() {
         return surname;

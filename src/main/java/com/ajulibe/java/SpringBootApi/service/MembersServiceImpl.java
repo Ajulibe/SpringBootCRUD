@@ -15,7 +15,7 @@ public class MembersServiceImpl implements MembersService {
     private MembersDAO membersDAO;
 
     @Autowired
-    public MembersServiceImpl(@Qualifier("membersDAOJpaImpl") MembersDAO theMembersDAO) {
+    public MembersServiceImpl(MembersDAO theMembersDAO) {
         membersDAO = theMembersDAO;
     }
 
