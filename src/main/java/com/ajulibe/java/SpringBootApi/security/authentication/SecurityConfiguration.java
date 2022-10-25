@@ -59,9 +59,17 @@ public class SecurityConfiguration {
                                 .and()
                                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                                 .and()
-                                //add filters to validate the token
-                                .addFilter(authenticationFilter())
+                                .formLogin()
+                                //the custom login page
+                                .loginPage("/login")
+                                //the URL to submit the username and password to @default -- /login
+                                .loginProcessingUrl("/api/v1/login")
+                                .defaultSuccessUrl("/index")
+                                .and()
+                                //check the request to see if there is an auth token already present
                                 .addFilter(new JwtAuthorizationFilter(authenticationManager, jwtUserDetailsService))
+                                //generate a token for the user
+                                .addFilter(authenticationFilter())
                                 .exceptionHandling()
                                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
                     } catch (Exception e) {

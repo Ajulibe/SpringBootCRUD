@@ -1,19 +1,18 @@
 package com.ajulibe.java.SpringBootApi.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class AuthController {
-    @RequestMapping("/user")
+    @RequestMapping("/not-logged")
     public String userEndpoint() {
-        return "Hello user!";
+        return "Hello user!, You are not logged in";
     }
 
-    @GetMapping("/admin")
+    @RequestMapping("/login")
     public String adminEndpoint() {
-        return "Hello admin!";
+        return "login";
     }
 }

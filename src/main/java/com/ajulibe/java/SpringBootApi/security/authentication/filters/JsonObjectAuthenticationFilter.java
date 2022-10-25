@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * An authentication filter is a middleware that acts on requests before they reach your controller
- * */
+ */
 
 public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -42,6 +42,7 @@ public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticati
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                     authRequest.getEmail(), authRequest.getPassword()
             );
+            System.out.println(token.toString());
             setDetails(request, token);
             return this.getAuthenticationManager().authenticate(token);
         } catch (IOException e) {
