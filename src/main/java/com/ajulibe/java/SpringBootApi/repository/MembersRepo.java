@@ -1,6 +1,7 @@
-package com.ajulibe.java.SpringBootApi.dao;
+package com.ajulibe.java.SpringBootApi.repository;
 
-import com.ajulibe.java.SpringBootApi.entity.Members;
+import com.ajulibe.java.SpringBootApi.entity.MembersEntity;
+import com.ajulibe.java.SpringBootApi.interfaces.MembersInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class MembersDAOJPAImpl implements MembersDAO {
+public class MembersRepo implements MembersInterface {
 
     // define field for entitymanager
     private EntityManager entityManager;
@@ -18,45 +20,48 @@ public class MembersDAOJPAImpl implements MembersDAO {
 
     // set up constructor injection
     @Autowired
-    public MembersDAOJPAImpl(EntityManager theEntityManager) {
+    public MembersRepo(EntityManager theEntityManager) {
         entityManager = theEntityManager;
     }
 
 
     @Override
     @Transactional
-    public List<Members> findAll() {
+    public List<MembersEntity> findAll() {
         // create a query
         Query theQuery =
                 entityManager.createQuery("from Members");
 
         // execute query and get result list
-        List<Members> membersList = theQuery.getResultList();
+        List<MembersEntity> membersList = theQuery.getResultList();
 
         // return the results
         return membersList;
     }
 
+
     @Override
     @Transactional
-    public Members findById(int theId) {
+    public Optional<MembersEntity> findById(int theId) {
         // get employee
-        Members theMember =
-                entityManager.find(Members.class, theId);
+        MembersEntity theMember =
+                entityManager.find(MembersEntity.class, theId);
 
         // return employee
-        return theMember;
+        return Optional.ofNullable(theMember);
     }
+
 
     @Override
     @Transactional
-    public void save(Members theMember) {
+    public Object save(MembersEntity theMember) {
 
         // save or update the employee
-        Members dbMembers = entityManager.merge(theMember);
+        MembersEntity dbMembers = entityManager.merge(theMember);
 
         // update with id from db ... so we can get generated id for save/insert
         theMember.setMemid(dbMembers.getMemid());
+        return null;
     }
 
     @Override
@@ -70,4 +75,6 @@ public class MembersDAOJPAImpl implements MembersDAO {
 
         theQuery.executeUpdate();
     }
+
+
 }

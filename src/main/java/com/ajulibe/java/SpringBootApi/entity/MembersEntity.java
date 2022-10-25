@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "members")
-public class Members {
+public class MembersEntity {
     // define fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,12 +43,12 @@ public class Members {
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "recommendedby", referencedColumnName = "memid")
-    private Members recommendedby;
+    private MembersEntity recommendedby;
 
-    public Members() {
+    public MembersEntity() {
     }
 
-    public Members(String surname, String firstname, String address, int zipcode, String telephone, Date joindate, Members recommendedby) {
+    public MembersEntity(String surname, String firstname, String address, int zipcode, String telephone, Date joindate, MembersEntity recommendedby) {
         this.surname = surname;
         this.firstname = firstname;
         this.address = address;
@@ -118,11 +118,11 @@ public class Members {
         this.joindate = joindate;
     }
 
-    public Members getRecommendedby() {
+    public MembersEntity getRecommendedby() {
         return recommendedby;
     }
 
-    public void setRecommendedby(Members recommendedby) {
+    public void setRecommendedby(MembersEntity recommendedby) {
         this.recommendedby = recommendedby;
     }
 
