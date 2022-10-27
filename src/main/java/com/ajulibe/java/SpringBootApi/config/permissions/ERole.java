@@ -9,7 +9,8 @@ package com.ajulibe.java.SpringBootApi.config.permissions;
 
 
 public enum ERole {
-    role_user,
+    role_admin,
     role_moderator,
-    role_admin
+    role_user,
+
 }

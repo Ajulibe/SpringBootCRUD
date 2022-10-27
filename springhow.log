@@ -2934,3 +2934,324 @@ org.postgresql.util.PSQLException: ERROR: column "role" is of type integer but e
 2022-10-27 19:57:45.502 TRACE 34391 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [3]
 2022-10-27 19:57:45.502 TRACE 34391 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [boyo]
 2022-10-27 19:57:45.502 TRACE 34391 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [9ea74e72-b048-4226-aa2d-3cabffde608d]
+2022-10-27 20:02:46.237 TRACE 34391 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:02:46.250 TRACE 34391 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:02:46.294 DEBUG 34391 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:02:46.317 TRACE 34391 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [boyo]
+2022-10-27 20:03:16.518  INFO 34619 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34619 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:03:16.519 DEBUG 34619 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:03:16.520  INFO 34619 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:03:18.393 DEBUG 34619 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:03:18.473  WARN 34619 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:03:18.676  INFO 34619 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.369 seconds (JVM running for 2.638)
+2022-10-27 20:03:24.160 TRACE 34619 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:03:24.162 TRACE 34619 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:03:24.290 DEBUG 34619 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:03:24.292 TRACE 34619 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [befweferry]
+2022-10-27 20:03:24.303 DEBUG 34619 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:03:24.303 TRACE 34619 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [vnsd@yahoo.com]
+2022-10-27 20:04:21.445  INFO 34661 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34661 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:04:21.447 DEBUG 34661 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:04:21.448  INFO 34661 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:04:23.245 DEBUG 34661 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:04:23.319  WARN 34661 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:04:23.549  INFO 34661 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.316 seconds (JVM running for 2.537)
+2022-10-27 20:04:26.358 TRACE 34661 --- [http-nio-8080-exec-3] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:04:26.359 TRACE 34661 --- [http-nio-8080-exec-3] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:04:26.481 DEBUG 34661 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:04:26.484 TRACE 34661 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [befweferry]
+2022-10-27 20:04:26.523 DEBUG 34661 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:04:26.523 TRACE 34661 --- [http-nio-8080-exec-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [vnsd@yahoo.com]
+2022-10-27 20:05:24.211  INFO 34707 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34707 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:05:24.211 DEBUG 34707 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:05:24.212  INFO 34707 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:05:25.858 DEBUG 34707 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:05:25.930  WARN 34707 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:05:26.128  INFO 34707 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.097 seconds (JVM running for 2.323)
+2022-10-27 20:05:29.573 TRACE 34707 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:05:29.574 TRACE 34707 --- [http-nio-8080-exec-2] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:05:29.696 DEBUG 34707 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:05:29.699 TRACE 34707 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [befweferry]
+2022-10-27 20:05:29.704 DEBUG 34707 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:05:29.704 TRACE 34707 --- [http-nio-8080-exec-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [vnsd@yahoo.com]
+2022-10-27 20:05:55.281  INFO 34739 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34739 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:05:55.281 DEBUG 34739 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:05:55.282  INFO 34739 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:05:57.146 DEBUG 34739 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:05:57.224  WARN 34739 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:05:57.425  INFO 34739 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.343 seconds (JVM running for 2.647)
+2022-10-27 20:06:00.537 TRACE 34739 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:06:00.539 TRACE 34739 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:06:00.658 DEBUG 34739 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:06:00.664 TRACE 34739 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [befweferry]
+2022-10-27 20:06:00.669 DEBUG 34739 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:06:00.669 TRACE 34739 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [vnsd@yahoo.com]
+2022-10-27 20:10:25.278  INFO 34833 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34833 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:10:25.279 DEBUG 34833 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:10:25.279  INFO 34833 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:10:26.962 DEBUG 34833 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:10:27.042  WARN 34833 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:10:27.267  INFO 34833 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.166 seconds (JVM running for 2.397)
+2022-10-27 20:10:57.100 TRACE 34833 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:10:57.103 TRACE 34833 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
+2022-10-27 20:10:57.266 DEBUG 34833 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.username=?
+2022-10-27 20:10:57.269 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [benji]
+2022-10-27 20:10:57.276 DEBUG 34833 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:10:57.276 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [akachi@yahoo.com]
+2022-10-27 20:10:57.393 DEBUG 34833 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (email, enabled, joindate, password, role, username, uuid) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2022-10-27 20:10:57.393 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [akachi@yahoo.com]
+2022-10-27 20:10:57.394 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BOOLEAN] - [true]
+2022-10-27 20:10:57.394 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [TIMESTAMP] - [Thu Oct 27 20:10:57 CEST 2022]
+2022-10-27 20:10:57.394 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [$2a$10$iQnr.JzFWObxDoyrkdUAp.s8cK.ji/6Xs1mBkq8IWaTqR7.O2oTAK]
+2022-10-27 20:10:57.395 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [3]
+2022-10-27 20:10:57.395 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [benji]
+2022-10-27 20:10:57.395 TRACE 34833 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [ecfa890f-6120-4bfc-ba90-87f94eeb2d0f]
+2022-10-27 20:12:14.048  INFO 34887 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34887 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:12:14.049 DEBUG 34887 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:12:14.049  INFO 34887 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:12:16.383 DEBUG 34887 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:12:16.486  WARN 34887 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:12:16.756  INFO 34887 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 2.976 seconds (JVM running for 3.254)
+2022-10-27 20:12:51.690  INFO 34909 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Starting SpringBootApiApplication using Java 19 on Akachukwus-MacBook-Pro-2.local with PID 34909 (/Users/akachukwuajulibe/Downloads/SpringBootApi/target/classes started by akachukwuajulibe in /Users/akachukwuajulibe/Downloads/SpringBootApi)
+2022-10-27 20:12:51.691 DEBUG 34909 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Running with Spring Boot v2.7.4, Spring v5.3.23
+2022-10-27 20:12:51.691  INFO 34909 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-10-27 20:12:54.441 DEBUG 34909 --- [restartedMain] j.S.s.a.f.JsonObjectAuthenticationFilter : Filter 'authenticationFilter' configured for use
+2022-10-27 20:12:54.590  WARN 34909 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-10-27 20:12:54.893  INFO 34909 --- [restartedMain] c.a.j.S.SpringBootApiApplication         : Started SpringBootApiApplication in 3.501 seconds (JVM running for 3.761)
+2022-10-27 20:13:54.995 DEBUG 34909 --- [http-nio-8080-exec-1] c.a.j.S.aspects.LoggingAspect            : Enter: com.ajulibe.java.SpringBootApi.service.jwt.JwtUserDetailsService.loadUserByUsername() with argument[s] = [ballon@yahoo.com]
+2022-10-27 20:13:55.001 DEBUG 34909 --- [http-nio-8080-exec-1] c.a.j.S.aspects.LoggingAspect            : Enter: com.ajulibe.java.SpringBootApi.service.jwt.JwtUserService.getJwtUserByEmail() with argument[s] = [ballon@yahoo.com]
+2022-10-27 20:13:55.088 DEBUG 34909 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        userentity0_.id as id1_4_,
+        userentity0_.email as email2_4_,
+        userentity0_.enabled as enabled3_4_,
+        userentity0_.joindate as joindate4_4_,
+        userentity0_.password as password5_4_,
+        userentity0_.role as role6_4_,
+        userentity0_.username as username7_4_,
+        userentity0_.uuid as uuid8_4_ 
+    from
+        users userentity0_ 
+    where
+        userentity0_.email=?
+2022-10-27 20:13:55.100 TRACE 34909 --- [http-nio-8080-exec-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [ballon@yahoo.com]
+2022-10-27 20:13:55.123 DEBUG 34909 --- [http-nio-8080-exec-1] c.a.j.S.aspects.LoggingAspect            : Exit: com.ajulibe.java.SpringBootApi.service.jwt.JwtUserService.getJwtUserByEmail() with result = UserEntity(id=18, uuid=860e5a34-625a-448a-9290-6b535e91081e, username=berry, email=ballon@yahoo.com, password=$2a$10$kXNC681pmGiAJMlqgF2i/OURpzs7JTiya7HUGsFN35ZQZxvtZPtjm, role=3, enabled=true, joindate=2022-10-27 19:45:41.265)
+2022-10-27 20:13:55.128 DEBUG 34909 --- [http-nio-8080-exec-1] c.a.j.S.aspects.LoggingAspect            : Exit: com.ajulibe.java.SpringBootApi.service.jwt.JwtUserDetailsService.loadUserByUsername() with result = org.springframework.security.core.userdetails.User [Username=berry, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[3]]
+2022-10-27 20:13:55.206 DEBUG 34909 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=berry, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, credentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[3]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[3]]
+2022-10-27 20:13:55.220 ERROR 34909 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+
+io.jsonwebtoken.lang.UnknownClassException: Unable to load class named [io.jsonwebtoken.impl.DefaultJwtBuilder] from the thread context, current, or system/application ClassLoaders.  All heuristics have been exhausted.  Class could not be found.  Have you remembered to include the jjwt-impl.jar in your runtime classpath?
+	at io.jsonwebtoken.lang.Classes.forName(Classes.java:92) ~[jjwt-api-0.11.2.jar:0.11.2]
+	at io.jsonwebtoken.lang.Classes.newInstance(Classes.java:136) ~[jjwt-api-0.11.2.jar:0.11.2]
+	at io.jsonwebtoken.Jwts.builder(Jwts.java:141) ~[jjwt-api-0.11.2.jar:0.11.2]
+	at com.ajulibe.java.SpringBootApi.security.authentication.helpers.JwtUtils.doGenerateToken(JwtUtils.java:55) ~[classes/:na]
+	at com.ajulibe.java.SpringBootApi.security.authentication.helpers.JwtUtils.generateToken(JwtUtils.java:26) ~[classes/:na]
+	at com.ajulibe.java.SpringBootApi.security.authentication.helpers.AuthSuccessHandler.onAuthenticationSuccess(AuthSuccessHandler.java:31) ~[classes/:na]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:329) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:237) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.3.jar:5.7.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:1589) ~[na:na]
+
+2022-10-27 20:13:55.222 TRACE 34909 --- [http-nio-8080-exec-1] j.S.s.a.f.JsonObjectAuthenticationFilter : Did not match request to Ant [pattern='/login', POST]
