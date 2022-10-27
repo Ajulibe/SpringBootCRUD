@@ -13,10 +13,15 @@ import java.util.*;
 @Getter
 @Setter
 @Builder
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class JwtUserEntity implements UserDetails {
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email")
+})
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,22 +39,26 @@ public class JwtUserEntity implements UserDetails {
     private String password;
 
     @Column
-    @Enumerated(EnumType.STRING)
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<ERole> role = new HashSet<>();
+//    @Enumerated(EnumType.STRING)
+//    @ElementCollection(fetch = FetchType.EAGER)
+    //basically links this field to the role table and references the id column
+//    @CollectionTable(name = "role", joinColumns = @JoinColumn(name = "id"))
+    private int role;
 
     @Column
     @Builder.Default
     private boolean enabled = false;
 
+    @Column(name = "joindate")
+    private Date joindate;
 
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        JwtUserEntity jwtUserEntity = (JwtUserEntity) o;
-        return id != null && Objects.equals(id, jwtUserEntity.id);
+        UserEntity userEntity = (UserEntity) o;
+        return id != null && Objects.equals(id, userEntity.id);
     }
 
     @Override
@@ -60,10 +69,13 @@ public class JwtUserEntity implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        for (var r : this.role) {
-            var sga = new SimpleGrantedAuthority(r.name());
-            authorities.add(sga);
-        }
+        var sga = new SimpleGrantedAuthority(String.valueOf(this.role));
+        authorities.add(sga);
+//        this.role
+//        for (var r : this.role) {
+//            var sga = new SimpleGrantedAuthority(r.name());
+//            authorities.add(sga);
+//        }
         return authorities;
     }
 
@@ -82,3 +94,15 @@ public class JwtUserEntity implements UserDetails {
         return false;
     }
 }
+
+/**
+ * mysql> select * from role;
+ * +-------------+--------------+
+ * |          id | names |
+ * +-------------+--------------+
+ * |           1 | role_admin   |
+ * |           1 | role_moderat |
+ * |           1 | role_user    |
+ * +-------------+--------------+
+ * 3 rows in set (0.00 sec)
+ */

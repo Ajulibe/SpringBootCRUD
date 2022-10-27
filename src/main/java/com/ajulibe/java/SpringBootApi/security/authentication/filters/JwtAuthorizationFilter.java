@@ -20,7 +20,7 @@ import java.io.IOException;
  * @order -- this executes First
  * This will search for authorization headers in the incoming request
  * essentially to validate the token present
- * */
+ */
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
@@ -35,9 +35,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
 
     @Override
-    protected  void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         UsernamePasswordAuthenticationToken auth = getAuthentication(request);
-        if (auth==null) {
+        if (auth == null) {
             filterChain.doFilter(request, response);
             return;
         }

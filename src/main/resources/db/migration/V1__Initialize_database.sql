@@ -1,4 +1,17 @@
-create table bookings (
+-- YOU CAN AUTOMATICALLY GENERATE MOCK DATA FROM https://www.mockaroo.com/
+-- other options are: https://www.onlinedatagenerator.com/
+
+
+
+--you can use this statement to quickly delete all tables in the database
+--DROP SCHEMA public CASCADE;
+--CREATE SCHEMA public;
+--
+--GRANT ALL ON SCHEMA public TO postgres;
+--GRANT ALL ON SCHEMA public TO public;
+
+
+create table if not exists bookings (
     bookid integer not null,
     facid integer not null,
     memid integer not null,
@@ -7,7 +20,7 @@ create table bookings (
 );
 
 
-create table facilities (
+create table if not exists facilities (
     facid integer not null,
     firstname character varying(100) not null,
     membercost numeric not null,
@@ -17,7 +30,7 @@ create table facilities (
 );
 
 
-create table members (
+create table if not exists members (
     memid integer not null,
     surname character varying(200) not null,
     firstname character varying(200) not null,
@@ -27,6 +40,46 @@ create table members (
     recommendedby integer,
     joindate timestamp without time zone not null
 );
+
+create TYPE valid_roles AS ENUM ('role_admin', 'role_moderator', 'role_user');
+
+create table if not exists role (
+    id integer primary key not null,
+    role valid_roles not null
+);
+
+insert into role(id, role) values
+(1, 'role_admin'),
+(2, 'role_moderator'),
+(3, 'role_user');
+
+
+create table if not exists users (
+    id serial primary key,
+    uuid character varying(300),
+    username character varying(200) not null,
+    email character varying(300) not null,
+    password character varying(300) not null,
+    role integer not null,
+    constraint fk_roles foreign key(role) references role(id),
+    enabled boolean not null,
+    joindate timestamp without time zone
+);
+
+
+
+insert into users(uuid, username, email, password, role, enabled, joindate) values
+('fc7e86a8-c883-407f-bd48-bc7befe8d8d4', 'ben', 'ben@yahoo.com', 'ben', 1, true, '2012-07-04 15:00:00' ),
+('a37554a0-dafb-4f9b-b251-2faefbbe2fa8', 'pvanyukhin0', 'mdoey0@multiply.com', 'OFnvJljVqXl', 2, false, '2022-06-07 22:38:16'),
+('1f211e6a-2a38-4f00-8953-3cab7e999b53', 'rshrieve1', 'jechalier1@pbs.org', '5sMdMFuzYm', 2, false, '2022-01-23 21:54:30'),
+('34b4efea-4240-4498-8194-e9237b9d7a7f', 'rmclagain2', 'pfrancklin2@theatlantic.com', 'HTMTuM42YtQN', 2, false, '2022-05-28 13:49:46'),
+('f9ec3df4-49e0-42dc-b9df-1bac632bce7d', 'swretham3', 'bdomenge3@ox.ac.uk', '0wX1f12o', 2, false, '2022-10-16 15:28:02'),
+('9a0bad58-60c9-450f-b28c-52074d86fba1', 'efernan4', 'tcasement4@aboutads.info', 'FkJ4ubf33Ixx', 2, true, '2022-01-30 18:41:09'),
+('18640a72-4abf-4b8f-80bf-196820a192c1', 'tcharpling5', 'nwhitehurst5@time.com', 'LoRCrqH0', 3, false, '2021-11-27 03:24:23'),
+('ab3e32e5-e0cd-4c52-a57b-e6cedefc13f2', 'eraisbeck6', 'dmellor6@moonfruit.com', 'LWDmx0YZNLuB', 3, false, '2022-04-16 20:45:53'),
+('d5b69d2f-ffe4-4203-95a7-97307d58dcbb', 'cmccarroll7', 'mneumann7@sciencedaily.com', 'Y1PlgPN', 2, true, '2022-01-16 20:32:19'),
+('ba4f3a44-9b6e-4135-8192-88dbd857c4d0', 'sagronski8', 'gpimbley8@purevolume.com', 'MbF50C1', 1, false, '2022-04-16 09:40:47'),
+('33f22c1b-fc56-4c55-9628-e19d094d355d', 'bstoodale9', 'gleddie9@wufoo.com', 'oFv6I8U', 2, true, '2022-06-23 12:06:12');
 
 insert into bookings (bookid, facid, memid, starttime, slots) values
 (0, 3, 1, '2012-07-03 11:00:00', 2),

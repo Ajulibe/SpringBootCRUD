@@ -1,10 +1,11 @@
 package com.ajulibe.java.SpringBootApi.entity;
 
 import com.ajulibe.java.SpringBootApi.config.permissions.ERole;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,15 +13,14 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
-    private ERole name;
+    private ERole role;
 
     public Role() {
     }
 
     public Role(ERole name) {
-        this.name = name;
+        this.role = name;
     }
-
 
 
     public Integer getId() {
@@ -32,10 +32,10 @@ public class Role {
     }
 
     public ERole getName() {
-        return name;
+        return role;
     }
 
     public void setName(ERole name) {
-        this.name = name;
+        this.role = name;
     }
 }

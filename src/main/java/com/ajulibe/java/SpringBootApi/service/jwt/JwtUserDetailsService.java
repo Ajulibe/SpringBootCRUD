@@ -1,7 +1,7 @@
 package com.ajulibe.java.SpringBootApi.service.jwt;
 
 
-import com.ajulibe.java.SpringBootApi.entity.JwtUserEntity;
+import com.ajulibe.java.SpringBootApi.entity.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        JwtUserEntity user = jwtUserService.getJwtUserByEmail(email);
+        UserEntity user = jwtUserService.getJwtUserByEmail(email);
+
+        System.out.println("final user in JwtUserDetailsService" + user);
 
         return new User(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, user.getAuthorities());
     }

@@ -1,5 +1,6 @@
 package com.ajulibe.java.SpringBootApi.security.authentication;
 
+import com.ajulibe.java.SpringBootApi.repository.JwtUserRepo;
 import com.ajulibe.java.SpringBootApi.security.authentication.helpers.AuthSuccessHandler;
 import com.ajulibe.java.SpringBootApi.security.authentication.filters.JsonObjectAuthenticationFilter;
 import com.ajulibe.java.SpringBootApi.security.authentication.filters.JwtAuthorizationFilter;
@@ -11,17 +12,26 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
+
+import static java.lang.String.format;
 
 /*
  * This is the main security configuration. To get this to work come sub-classes
  * were meade in the previous files
  * */
 
-//@EnableWebSecurity
+
 @Configuration
 public class SecurityConfiguration {
     @Value("${ajulibe.app.jwtSecret}")
@@ -31,6 +41,7 @@ public class SecurityConfiguration {
     private int jwtExpirationMs;
 
 
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -38,10 +49,11 @@ public class SecurityConfiguration {
     private final JwtUserDetailsService jwtUserDetailsService;
 
 
-    public SecurityConfiguration(AuthSuccessHandler authSuccessHandler, JwtUserDetailsService jwtUserDetailsService) {
+    public SecurityConfiguration(AuthSuccessHandler authSuccessHandler, JwtUserDetailsService jwtUserDetailsService, JwtUserRepo userRepo) {
         this.authSuccessHandler = authSuccessHandler;
         this.jwtUserDetailsService = jwtUserDetailsService;
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -63,7 +75,7 @@ public class SecurityConfiguration {
                                 //the custom login page
                                 .loginPage("/login")
                                 //the URL to submit the username and password to @default -- /login
-                                .loginProcessingUrl("/api/v1/login")
+                                .loginProcessingUrl("/get-user")
                                 .defaultSuccessUrl("/index")
                                 .and()
                                 //check the request to see if there is an auth token already present
@@ -87,6 +99,5 @@ public class SecurityConfiguration {
         filter.setAuthenticationManager(authenticationManager);
         return filter;
     }
-
 
 }
