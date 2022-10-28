@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
@@ -34,13 +35,6 @@ import static java.lang.String.format;
 
 @Configuration
 public class SecurityConfiguration {
-    @Value("${ajulibe.app.jwtSecret}")
-    private String jwtSecret;
-
-    @Value("${ajulibe.app.jwtExpirationMs}")
-    private int jwtExpirationMs;
-
-
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -53,7 +47,6 @@ public class SecurityConfiguration {
         this.authSuccessHandler = authSuccessHandler;
         this.jwtUserDetailsService = jwtUserDetailsService;
     }
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

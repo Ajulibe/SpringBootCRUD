@@ -10,6 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.*;
 
+/**
+ * @entity -- its only job is to describe the shape of the table its referencing
+ * and also define rules, @getters and @setters for working with each property
+ * **/
+
 @Getter
 @Setter
 @Builder

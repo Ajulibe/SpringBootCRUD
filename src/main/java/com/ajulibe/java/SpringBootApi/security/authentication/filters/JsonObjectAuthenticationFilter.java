@@ -42,7 +42,6 @@ public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticati
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                     authRequest.getEmail(), authRequest.getPassword()
             );
-            System.out.println(token.toString());
             setDetails(request, token);
             return this.getAuthenticationManager().authenticate(token);
         } catch (IOException e) {

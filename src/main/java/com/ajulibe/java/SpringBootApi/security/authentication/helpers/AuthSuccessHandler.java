@@ -21,13 +21,14 @@ import java.io.IOException;
 @Slf4j
 @RequiredArgsConstructor
 public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
+    private final JwtUtils jwtUtils;
+
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
         //get the current authenticated user
         UserDetails principal = (UserDetails) authentication.getPrincipal();
         //generate jwt
-        JwtUtils jwtUtils = new JwtUtils();
         String token = jwtUtils.generateToken(principal);
         response.addHeader("Authorization", "Bearer " + token);
         response.addHeader("Content-Type", "application/json");
