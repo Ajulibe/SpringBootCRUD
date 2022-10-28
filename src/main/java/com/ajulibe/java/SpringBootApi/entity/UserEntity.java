@@ -58,6 +58,14 @@ public class UserEntity implements UserDetails {
     private Date joindate;
 
 
+    public UserEntity(String email, String username, Boolean enabled,  int authorities) {
+        this.role = authorities;
+        this.email = email;
+        this.username = username;
+        this.enabled = enabled;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,6 +73,7 @@ public class UserEntity implements UserDetails {
         UserEntity userEntity = (UserEntity) o;
         return id != null && Objects.equals(id, userEntity.id);
     }
+
 
     @Override
     public int hashCode() {

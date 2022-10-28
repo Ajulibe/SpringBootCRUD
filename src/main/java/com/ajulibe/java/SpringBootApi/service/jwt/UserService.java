@@ -1,10 +1,13 @@
 package com.ajulibe.java.SpringBootApi.service.jwt;
 
 import com.ajulibe.java.SpringBootApi.config.permissions.ERole;
-import com.ajulibe.java.SpringBootApi.dto.request.RegisterRequestDto;
+import com.ajulibe.java.SpringBootApi.dto.request.RegisterRequestDTO;
 import com.ajulibe.java.SpringBootApi.entity.UserEntity;
 import com.ajulibe.java.SpringBootApi.repository.JwtUserRepo;
 import com.ajulibe.java.SpringBootApi.security.config.SecurityBeans;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +26,7 @@ public class UserService {
     }
 
     @Transactional
-    public void create(RegisterRequestDto registerRequestDto) {
+    public void create(RegisterRequestDTO registerRequestDto) {
         SecurityBeans securityBeans = new SecurityBeans();
         String encodedPassword = securityBeans.passwordEncoder().encode(registerRequestDto.password());
 
