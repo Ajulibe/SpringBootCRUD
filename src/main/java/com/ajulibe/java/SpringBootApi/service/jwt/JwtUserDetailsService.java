@@ -1,18 +1,14 @@
 package com.ajulibe.java.SpringBootApi.service.jwt;
 
 
+import com.ajulibe.java.SpringBootApi.dto.CurrentUserDTO;
 import com.ajulibe.java.SpringBootApi.entity.UserEntity;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.*;
 
 
 @Service
@@ -24,6 +20,9 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity user = jwtUserService.getJwtUserByEmail(email);
-        return new User(user.getEmail(), user.getUsername(), user.isEnabled(), true, true, true, user.getAuthorities());
+        CurrentUserDTO currentUserDTO = new CurrentUserDTO(user.getUsername(), user.getPassword(), user.isEnabled(), true, true, true, user.getAuthorities());
+        //manually setting the email into the current user details to include email
+        currentUserDTO.setEmail(email);
+        return currentUserDTO;
     }
 }

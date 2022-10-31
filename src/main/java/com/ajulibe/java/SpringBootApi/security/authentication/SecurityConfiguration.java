@@ -4,28 +4,20 @@ import com.ajulibe.java.SpringBootApi.repository.JwtUserRepo;
 import com.ajulibe.java.SpringBootApi.security.authentication.helpers.AuthSuccessHandler;
 import com.ajulibe.java.SpringBootApi.security.authentication.filters.JsonObjectAuthenticationFilter;
 import com.ajulibe.java.SpringBootApi.security.authentication.filters.JwtAuthorizationFilter;
+import com.ajulibe.java.SpringBootApi.security.authentication.helpers.AuthUnauthorizedHandler;
 import com.ajulibe.java.SpringBootApi.service.jwt.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
-import static java.lang.String.format;
+
+
 
 /*
  * This is the main security configuration. To get this to work come sub-classes
@@ -38,6 +30,9 @@ public class SecurityConfiguration {
 
     @Autowired
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private AuthUnauthorizedHandler unauthorizedHandler;
 
     private final AuthSuccessHandler authSuccessHandler;
     private final JwtUserDetailsService jwtUserDetailsService;
@@ -60,7 +55,8 @@ public class SecurityConfiguration {
                         auth
                                 .antMatchers("/user").hasRole("USER")
                                 .antMatchers("/admin").hasRole("ADMIN")
-                                .anyRequest().permitAll()
+                                .antMatchers(HttpMethod.POST, "/register").permitAll()
+                                .anyRequest().authenticated()
                                 .and()
                                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                                 .and()
@@ -69,14 +65,14 @@ public class SecurityConfiguration {
                                 .loginPage("/login")
                                 //the URL to submit the username and password to @default -- /login
                                 .loginProcessingUrl("/get-user")
-                                .defaultSuccessUrl("/index")
+                                .defaultSuccessUrl("/")
                                 .and()
                                 //check the request to see if there is an auth token already present
                                 .addFilter(new JwtAuthorizationFilter(authenticationManager, jwtUserDetailsService))
                                 //generate a token for the user
                                 .addFilter(authenticationFilter())
                                 .exceptionHandling()
-                                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+                                .authenticationEntryPoint(unauthorizedHandler);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

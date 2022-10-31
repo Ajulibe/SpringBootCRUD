@@ -34,7 +34,7 @@ public class JwtUtils {
 
 
     //retrieve Email from jwt token -- remember the email here is the username
-    public String getEmailFromToken(String token) {
+    public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
 
@@ -93,7 +93,7 @@ public class JwtUtils {
 
     //validate token
     public Boolean validateToken(String token, UserDetails userDetails) {
-        final String username = getEmailFromToken(token);
+        final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 }

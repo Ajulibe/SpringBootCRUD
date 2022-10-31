@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.*;
 /**
  * @entity -- its only job is to describe the shape of the table its referencing
  * and also define rules, @getters and @setters for working with each property
- * **/
+ **/
 
 @Getter
 @Setter
@@ -44,10 +45,6 @@ public class UserEntity implements UserDetails {
     private String password;
 
     @Column
-//    @Enumerated(EnumType.STRING)
-//    @ElementCollection(fetch = FetchType.EAGER)
-    //basically links this field to the role table and references the id column
-//    @CollectionTable(name = "role", joinColumns = @JoinColumn(name = "id"))
     private int role;
 
     @Column
@@ -56,14 +53,6 @@ public class UserEntity implements UserDetails {
 
     @Column(name = "joindate")
     private Date joindate;
-
-
-    public UserEntity(String email, String username, Boolean enabled,  int authorities) {
-        this.role = authorities;
-        this.email = email;
-        this.username = username;
-        this.enabled = enabled;
-    }
 
 
     @Override

@@ -55,12 +55,12 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         }
 
         JwtUtils jwtUtils = new JwtUtils();
-        String email = jwtUtils.getEmailFromToken(token);
+        String username = jwtUtils.getUsernameFromToken(token);
 
         //check if there is an email associated with the token
-        if (email == null) return null;
+        if (username == null) return null;
         //if the token is actually valid, then return the user with that email
-        UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(email);
+        UserDetails userDetails = jwtUserDetailsService.loadUserByUsername(username);
         return new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
     }
 }

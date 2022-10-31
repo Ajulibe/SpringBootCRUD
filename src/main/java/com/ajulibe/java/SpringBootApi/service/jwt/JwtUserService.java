@@ -20,7 +20,6 @@ public class JwtUserService {
     }
 
     public UserEntity getJwtUserByEmail(String email) {
-        System.out.println(email + "email in User service");
         return jwtUserRepo.findJwtUserByEmail(email)
                 .orElseThrow(() -> new EntityNotFoundException("User not found by email!"));
     }

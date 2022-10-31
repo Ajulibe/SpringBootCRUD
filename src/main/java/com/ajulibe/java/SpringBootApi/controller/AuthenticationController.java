@@ -31,52 +31,33 @@ import java.util.List;
 
 
 @Controller
+@RequiredArgsConstructor
 public class AuthenticationController {
-    @Autowired
+
     private JwtUserRepo userRepository;
 
+    private JwtUtils jwtUtils;
 
-//    @RequestMapping(value = "/login", method = RequestMethod.POST)
-//    public String getUserDetails(@RequestBody LoginCredentialsDTO loginPayload) {
-//        System.out.println(loginPayload + "logg in credentials");
-//        //generation of the token happens through the filters in the SecurityConfiguration file
-//        //SecurityContextHolder and all the required data is configured and placed for us to us
-//
-////        //get the user details
-//////        Authentication authentication = authenticationManager.authenticate(
-//////                new UsernamePasswordAuthenticationToken(loginPayload.email(), loginPayload.password()));
-//////
-//////        SecurityContextHolder.getContext().setAuthentication(authentication);
-////
-////        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//////        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-////        String jwt = jwtUtils.generateToken(user);
-////
-////        GrantedAuthority userRole = null;
-////        for (GrantedAuthority role : user.getAuthorities()) {
-////            userRole = role;
-////        }
-////        //get the claims on the user
-////        //get the user token
-////        return ResponseEntity.ok(new LoginResponseDTO(jwt,
-////                user.getUsername(),
-////                loginPayload.email(),
-////                user.isEnabled(),
-////                userRole
-////        ));
-//
-//        return "done";
-//    }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public LoginCredentials getUserDetails(@RequestBody LoginCredentials loginPayload) {
-        System.out.println(loginPayload + "logg in credentials");
-        //generate the token
-        //get the user details
-        //get the claims on the user
-        //get the user token
-        return loginPayload;
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public ResponseEntity<LoginResponseDTO> getUserDetails(@RequestBody LoginCredentialsDTO loginPayload) {
+        System.out.println(loginPayload + "logg in credentials----------------------------------------------------");
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String jwt = jwtUtils.generateToken(user);
+
+        GrantedAuthority userRole = null;
+        for (GrantedAuthority role : user.getAuthorities()) {
+            userRole = role;
+        }
+        return ResponseEntity.ok(new LoginResponseDTO(jwt,
+                user.getUsername(),
+                loginPayload.email(),
+                user.isEnabled(),
+                userRole
+        ));
     }
+
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequestDTO registerRequestDto) {
